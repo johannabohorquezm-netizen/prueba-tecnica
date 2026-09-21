@@ -1,0 +1,153 @@
+<div class="usuario-dialog">
+
+  <div class="usuario-dialog__header">
+
+    <h2 class="usuario-dialog__title">
+      {{ esEdicion ? 'Editar usuario' : 'Registrar usuario' }}
+    </h2>
+
+    <button
+      type="button"
+      class="usuario-dialog__close"
+      (click)="cancelar()"
+    >
+      ✕
+    </button>
+
+  </div>
+
+  <form
+    [formGroup]="formulario"
+    (ngSubmit)="guardar()"
+    class="usuario-dialog__form"
+  >
+
+    <div class="usuario-dialog__grid">
+
+      <div class="usuario-dialog__field">
+        <label>Departamento:</label>
+
+        <mat-form-field appearance="outline">
+          <mat-select formControlName="idDepartamento">
+
+            <mat-option
+              *ngFor="let departamento of data.departamentos"
+              [value]="departamento.id"
+            >
+              {{ departamento.nombre }}
+            </mat-option>
+
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="usuario-dialog__field">
+        <label>Cargo:</label>
+
+        <mat-form-field appearance="outline">
+          <mat-select formControlName="idCargo">
+
+            <mat-option
+              *ngFor="let cargo of data.cargos"
+              [value]="cargo.id"
+            >
+              {{ cargo.nombre }}
+            </mat-option>
+
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="usuario-dialog__field">
+        <label>Usuario:</label>
+
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            formControlName="usuario"
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="usuario-dialog__field">
+        <label>Email:</label>
+
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            type="email"
+            formControlName="email"
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="usuario-dialog__field">
+        <label>Primer Nombre:</label>
+
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            formControlName="primerNombre"
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="usuario-dialog__field">
+        <label>Segundo Nombre:</label>
+
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            formControlName="segundoNombre"
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="usuario-dialog__field">
+        <label>Primer Apellido:</label>
+
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            formControlName="primerApellido"
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="usuario-dialog__field">
+        <label>Segundo Apellido:</label>
+
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            formControlName="segundoApellido"
+          >
+        </mat-form-field>
+      </div>
+
+    </div>
+
+    <div class="usuario-dialog__footer">
+
+      <button
+        mat-flat-button
+        type="submit"
+        class="usuario-dialog__save"
+      >
+        {{ esEdicion ? 'Actualizar' : 'Registrar' }}
+      </button>
+
+      <button
+        mat-button
+        type="button"
+        class="usuario-dialog__cancel"
+        (click)="cancelar()"
+      >
+        Cancelar
+      </button>
+
+    </div>
+
+  </form>
+
+</div>

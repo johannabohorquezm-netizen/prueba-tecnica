@@ -1,0 +1,93 @@
+.usuario-dialog {
+  width: 100%;
+  color: #344563;
+  overflow: hidden;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 22px;
+    border-bottom: 1px solid #d5d9df;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &__close {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 22px;
+    color: #344563;
+  }
+
+  &__form {
+    padding: 20px 24px 0;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+    row-gap: 8px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    label {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin: 8px -24px 0;
+    padding: 14px 20px;
+    border-top: 1px solid #d5d9df;
+  }
+
+  &__save {
+    min-width: 130px;
+    height: 38px;
+  }
+
+  &__cancel {
+    min-width: 120px;
+    height: 38px;
+  }
+}
+
+::ng-deep .usuario-dialog .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+::ng-deep .usuario-dialog .mat-mdc-text-field-wrapper {
+  height: 44px;
+}
+
+::ng-deep .usuario-dialog .mat-mdc-form-field-flex {
+  height: 44px;
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .usuario-dialog {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
